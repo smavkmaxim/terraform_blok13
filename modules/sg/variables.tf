@@ -8,7 +8,7 @@ variable "custom_zone" {
 
 variable "port_list" {
   default = {
-    "prod" = ["22", "80", "443"]
+    "prod" = ["22"]
   }
 }
 
