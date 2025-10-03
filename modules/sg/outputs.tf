@@ -1,4 +1,4 @@
-output "prod_instance_ports" {
+output "allowed_ports" {
   value = yandex_vpc_security_group.sgroup_prod.ingress[*].port
 }
 
