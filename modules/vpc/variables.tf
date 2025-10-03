@@ -5,3 +5,8 @@ variable "custom_folder_id" {
 variable "custom_zone" {
   type    = string
 }
+
+variable "env" {
+  type    = string
+  default = "dev"
+}
