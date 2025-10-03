@@ -12,9 +12,9 @@ provider "yandex" {
 }
 
 resource "yandex_vpc_security_group" "sgroup_prod" {
-  name        = "sg_kma_prod"
+  name        = "sg-kma-${var.env}"
   description = "description for my security group"
-  network_id  = var.network-1
+  network_id  = var.network_id
   folder_id = var.custom_folder_id
 
         # настройка правил для входящего трафика через динамический блок

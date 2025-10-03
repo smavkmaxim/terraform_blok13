@@ -12,6 +12,11 @@ variable "port_list" {
   }
 }
 
-variable "network-1" {
+variable "network_id" {
   type    = string
+}
+
+variable "env" {
+  type    = string
+  default = "dev"
 }

@@ -1,5 +1,14 @@
 terraform {
-  source = "../../modules/vpc"
+  source = "../../modules/sg"
+}
+
+# указание зависимости, так как наша виртуальная машина требует подсети
+# идентификатор подсети мы получаем из модуля VPC
+dependency "vpc" {
+  config_path = "../vpc"
+    mock_outputs = {
+    network-1 = "temporary-dummy-id" # требуется для нормальной работы зависимостей
+  }
 }
 
 inputs = {
@@ -7,4 +16,5 @@ inputs = {
     env        = "prod"
     custom_zone       = "ru-central1-d"
     custom_folder_id = "b1ge32e4edrv1bn68jeo"
+    network_id = dependency.vpc.outputs.network-1
 }

@@ -15,12 +15,12 @@ provider "yandex" {
 
 
 resource "yandex_vpc_network" "network-1" {
-  name = "network1"
+  name = "network-${var.env}"
   folder_id = var.custom_folder_id
 }
 
 resource "yandex_vpc_subnet" "subnet-1" {
-  name           = "subnet1"
+  name           = "network-${var.env}"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.19.0/24", "192.168.90.0/24"]
   folder_id = var.custom_folder_id
