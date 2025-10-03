@@ -8,11 +8,11 @@ terraform {
 
 provider "yandex" {
   zone = var.custom_zone
-  service_account_key_file = "authorized_key.json"
+  service_account_key_file = "/opt/authorized_key.json"
 }
 
 resource "yandex_compute_instance" "vm_kma" {
-  name = "vm-kma"
+  name = "vm-kma${var.env}"
   zone = var.custom_zone
   folder_id = var.custom_folder_id
   platform_id = "standard-v2"
@@ -27,7 +27,7 @@ resource "yandex_compute_instance" "vm_kma" {
     }
   }
   network_interface {
-    subnet_id = module.yandex_vpc.subnet-1
+    subnet_id = var.subnet_id
     nat       = true
   }
 }

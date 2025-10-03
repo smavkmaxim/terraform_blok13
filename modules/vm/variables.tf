@@ -7,3 +7,13 @@ variable "custom_zone" {
   type    = string
   default = "ru-central1-d"
 }
+
+variable "env" {
+  type    = string
+  default = "dev"
+}
+
+
+variable "subnet_id" {
+  type    = string
+}

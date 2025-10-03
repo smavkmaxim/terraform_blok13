@@ -13,6 +13,6 @@ dependency "vpc" {
 
 inputs = {
     env        = "dev"
-    zone       = "ru-central1-a"
+    custom_zone       = "ru-central1-d"
     subnet_id  = dependency.vpc.outputs.subnet-1
 }
